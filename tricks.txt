@@ -1,30 +1,30 @@
-//Sed
-// using item groups to swap any occurrence before and after colon
-:%s/\(.*\):\(.*\)/\2:\1/g
-
-// substitute capture groups
-
-:%s/\(\w\) dogs/something or\1/g        // (\w captures word in group) replaces \1 in sentence
-
-// wrapping all occurrences of a word
-:s/vim/<&>/g    // <vim>
-
-// case-sensitive  replace
-:s/[Vv]im/him/g
-
-// replace in the following lines
-:s/vim/him/10
-
-// replace in visual mode
-:s/vim/him/
-
 /----------------------------------------------------------------------------------------------------------------------/
 // Verbs, Modifiers, Nouns
+// Verbs
+d           // delete
+c           // change
+y           // yank
+v           // visually select
 
+// Modifiers
+i           // inside
+a           // around
+[NUM]       // number
+t           // before char
+f           // on char
+/           // string search
+
+// Nouns
+w           // word
+s           // sentence
+b           // bracket (block)
+B           // curly bracket (block)
+p           // paragraph
+t           // tag
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Example VMN combinations
-// movement editing combinations (i = in, a=all)
+
 ciw         // insert into word
 diw or dw   // delete word
 dib         // delete in brackets
@@ -47,20 +47,53 @@ a           // insert after cursor
 i           // insert before cursor
 e           // end of word
 b           // start of word
+o           // insert into line below
+O           // insert into line above
 ea          // insert into end of word
 bi          // insert into start of word
 +           // drop to next line
 
+H           // move to top of screen
+M           // move to middle of screen
+L           // move to bottom of screen
+
+<C-i>       // jump to previous navigation location
+<C-o>       // jump back to where you were
+
+0           // start of line
+$           // end of line
+^           // start of text on current line
+
+}           // move forward one paragraph
+{           // move back one paragraph
+)           // move forward one sentence
+(           // move back one sentence
+
+<C-e>       // move screen down
+<C-y>       // move screen up
+
+<C-u>       // move half screen down
+<C-d>       // move half screen up
+
+gg          // go to top of the screen
+G           // go to bottom of the screen
 /----------------------------------------------------------------------------------------------------------------------/
 // Searching
+// jumping
 t<char>     // jump just before char
 T<char>     // jump back just before char
 f<char>     // jump to char
 F<char>     // jump back to char
-*           // search for current cursor under
+*           // search forward from current cursor under
+#           // search backward from current cursor under
+;           // next instance on jump
+,           // prev instance on jump
 
+// searching
 /<word>     // search forward for word
 ?<word>     // search back for word
+n           // next instance of search
+N           // previous instance of search
 
 // with search term in reg
 dgn         //delete
@@ -96,15 +129,26 @@ m<char>     // save marker at specific point
 :sort i // ignore case
 :sort n // depending on first decimal on the line
 
-
 /----------------------------------------------------------------------------------------------------------------------/
 // Editing
+
+x           // delete character under cursor
+X           // delete character before the cursor
+
 r<char>     // replace
+R<char>     // replace and keep on replacing
+
 ~           // swap case
+guu         // lower case line
+gUU         // upper case  line
+guiw        // lower case word
+gUiw        // upper case word
 
 cc          // insert into line
 dd          // delete line
 
+D           // delete rest of the line
+C           // insert into the rest of line
 
 <C-a>       // increase number
 <C-x> d     // increase number
@@ -132,6 +176,27 @@ Registers
 
 0               // contents of the last yank
 1-9             // stack containing previous yanks
+
+/----------------------------------------------------------------------------------------------------------------------/
+//Sed
+// using item groups to swap any occurrence before and after colon
+:%s/\(.*\):\(.*\)/\2:\1/g
+
+// substitute capture groups
+
+:%s/\(\w\) dogs/something or\1/g        // (\w captures word in group) replaces \1 in sentence
+
+// wrapping all occurrences of a word
+:s/vim/<&>/g    // <vim>
+
+// case-sensitive  replace
+:s/[Vv]im/him/g
+
+// replace in the following lines
+:s/vim/him/10
+
+// replace in visual mode
+:s/vim/him/
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Custom bindings (ideavim)
