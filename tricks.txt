@@ -4,8 +4,7 @@
 
 // substitute capture groups
 
-:%s/\(\w\) dogs/something or\1/g        // (\w captures word in group)
-                                        // replaces \1 in sentence
+:%s/\(\w\) dogs/something or\1/g        // (\w captures word in group) replaces \1 in sentence
 
 // wrapping all occurrences of a word
 :s/vim/<&>/g    // <vim>
@@ -15,6 +14,30 @@
 
 // replace in the following lines
 :s/vim/him/10
+
+// replace in visual mode
+:s/vim/him/
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Verbs, Modifiers, Nouns
+
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Example VMN combinations
+// movement editing combinations (i = in, a=all)
+ciw         // insert into word
+diw or dw   // delete word
+dib         // delete in brackets
+diB         // delete in curly brackets
+dab         // delete block including brackets
+daB         // delete block including curly brackets
+
+yiw         // yank into word
+yiw or yw   // yank word
+yib         // yank in brackets
+yiB         // yank in curly brackets
+yab         // yank block including brackets
+yaB         // yank block including curly brackets
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Movement
@@ -30,7 +53,6 @@ bi          // insert into start of word
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Searching
-
 t<char>     // jump just before char
 T<char>     // jump back just before char
 f<char>     // jump to char
@@ -38,7 +60,7 @@ F<char>     // jump back to char
 *           // search for current cursor under
 
 /<word>     // search forward for word
-?<word>     // shearch back for word
+?<word>     // search back for word
 
 // with search term in reg
 dgn         //delete
@@ -80,32 +102,36 @@ m<char>     // save marker at specific point
 r<char>     // replace
 ~           // swap case
 
-// movement editing combinations (i = in, a=all)
-ciw         // insert into word
-diw or dw   // delete word
-dib         // delete in brackets
-diB         // delete in curly brackets
-dab         // delete block including brackets
-daB         // delete block including curly brackets
+cc          // insert into line
+dd          // delete line
 
-<C-a> increase number
-<C-x> decrease number
+
+<C-a>       // increase number
+<C-x> d     // increase number
+
+^J          // append line below to current line
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Recording
 // bind recording to char
 q<char>
 
+// append to recording after exit
+q<CHAR>
+
 // replay recording
 @<char>
 
 /----------------------------------------------------------------------------------------------------------------------/
 Registers
-"<char> // specify a register
+"<char>         // specify a register
+"<char>yy       // yank to specific register
+"<char>p        // paste from specific register
 
-"<char>yy // yank to specific register
+// numbered registers
 
-"<char>p // paste from specific register
+0               // contents of the last yank
+1-9             // stack containing previous yanks
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Custom bindings (ideavim)
@@ -124,7 +150,7 @@ Registers
 <leader>wv  // vertically
 <leader>ws  // horizontally
 <leader>wc  // unsplit
-<leader>wC  // unsplit all
+<leader>wC  // unsplit ale
 
 // nav-split
 <leader>l   // right split
