@@ -1,0 +1,82 @@
+//Sed
+// using item groups to swap any occurrence before and after colon
+:%s/\(.*\):\(.*\)/\2:\1/g
+
+// substitute capture groups
+
+:%s/\(\w\) dogs/something or\1/g        // (\w captures word in group)
+                                        // replaces \1 in sentence
+
+// wrapping all occurrences of a word
+:s/vim/<&>/g    // <vim>
+
+// case-sensitive  replace
+:s/[Vv]im/him/g
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Searching
+
+t<char>     // jump just before char
+f<char>     // jump to char
+*           // search for current cursor under
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Surround extension
+// wrap text in visual mode with character
+viw     // highlight word
+S<char> // surround with char
+
+/----------------------------------------------------------------------------------------------------------------------/
+//  Replace wrapping with another char
+cs<original-char><new-char>
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Visual-black
+<C-v>   // start visual block
+I       // insert into visual
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Markers
+m<char>     // save marker at specific point
+'<char>     // go back to saved marker
+``          // go back to original position
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Sort
+// in visual mode
+:sort
+
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Custom bindings (ideavim)
+
+// show
+<leader>d   // error description
+
+// goto
+<leader>x   // next error
+<leader>X   // prev error
+<leader>g   // declaration
+<leader>u   // usages
+<leader>c   // class
+
+// split
+<leader>wv  // vertically
+<leader>ws  // horizontally
+<leader>wc  // unsplit
+<leader>wC  // unsplit all
+
+// nav-split
+<leader>l   // right split
+<leader>h   // left split
+<leader>j   // down split
+<leader>k   // up split
+<leader>wo  // next split
+<leader>wp  // prev split
+
+// tabs
+]]          // right
+[[          // left
+
+
+
