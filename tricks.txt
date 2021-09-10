@@ -13,21 +13,46 @@
 // case-sensitive  replace
 :s/[Vv]im/him/g
 
+// replace in the following lines
+:s/vim/him/10
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Movement
+I           // insert into line start
+A           // insert into line end
+a           // insert after cursor
+i           // insert before cursor
+e           // end of word
+b           // start of word
+ea          // insert into end of word
+bi          // insert into start of word
++           // drop to next line
+
 /----------------------------------------------------------------------------------------------------------------------/
 // Searching
 
 t<char>     // jump just before char
+T<char>     // jump back just before char
 f<char>     // jump to char
+F<char>     // jump back to char
 *           // search for current cursor under
+
+/<word>     // search forward for word
+?<word>     // shearch back for word
+
+// with search term in reg
+dgn         //delete
+cgn         //change
+// can be repeated for next occurrence with .
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Surround extension
+
 // wrap text in visual mode with character
 viw     // highlight word
 S<char> // surround with char
 
-/----------------------------------------------------------------------------------------------------------------------/
-//  Replace wrapping with another char
+// replace wrapping with another char
 cs<original-char><new-char>
 
 /----------------------------------------------------------------------------------------------------------------------/
@@ -45,7 +70,42 @@ m<char>     // save marker at specific point
 // Sort
 // in visual mode
 :sort
+:sort! // reverse
+:sort i // ignore case
+:sort n // depending on first decimal on the line
 
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Editing
+r<char>     // replace
+~           // swap case
+
+// movement editing combinations (i = in, a=all)
+ciw         // insert into word
+diw or dw   // delete word
+dib         // delete in brackets
+diB         // delete in curly brackets
+dab         // delete block including brackets
+daB         // delete block including curly brackets
+
+<C-a> increase number
+<C-x> decrease number
+
+/----------------------------------------------------------------------------------------------------------------------/
+// Recording
+// bind recording to char
+q<char>
+
+// replay recording
+@<char>
+
+/----------------------------------------------------------------------------------------------------------------------/
+Registers
+"<char> // specify a register
+
+"<char>yy // yank to specific register
+
+"<char>p // paste from specific register
 
 /----------------------------------------------------------------------------------------------------------------------/
 // Custom bindings (ideavim)
