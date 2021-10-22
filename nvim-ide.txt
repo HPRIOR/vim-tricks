@@ -1,0 +1,29 @@
+--- file management ---
+
+:new <filename> # create new file (new buffer horizontal)
+
+
+;   # open buffer search (telescope )
+
+# when in buffer search 
+<C-x>  # go to file selection as a split   
+<C-v>  # go to file selection as a vsplit   
+<C-t>  # go to a file in a new tab
+
+--- window management --- 
+
+# split 
+# (can be supplied file name to create a new file in the buffer otherwise it will open current)
+
+:split 
+:vsplit
+
+<C-w> [hjkl]    # window navigation
+<C-[i, o]>      # jump back/forward locations
+          
+--- tabs ---
+g[t, T]  # cycle through tabs
+
+
+--- misc --- 
+:noh    # no highlights
