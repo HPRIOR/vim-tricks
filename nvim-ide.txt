@@ -109,5 +109,6 @@ ga
 :SudoWrite      # Write a privileged file with sudo.
 :SudoEdit       # Edit a privileged file with sudo.
 
-
-
+--- vim fugitive ---
+:Git <usual commands>
+:G[v]diffsplit          # show diff in split mode
