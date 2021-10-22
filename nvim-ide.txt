@@ -1,14 +1,11 @@
+Buffers are areas of vim's memory used to hold text
 --- file management ---
 
 :new <filename> # create new file (new buffer horizontal)
-
+:ls             # show all buffers 
 
 ;   # open buffer search (telescope )
 
-# when in buffer search 
-<C-x>  # go to file selection as a split   
-<C-v>  # go to file selection as a vsplit   
-<C-t>  # go to a file in a new tab
 
 --- window management --- 
 
@@ -18,7 +15,9 @@
 :split 
 :vsplit
 
-<C-w> [hjkl]    # window navigation
+<C-w>           # preceeds many window commands
+[-, +][<, >]    # resize window
+[hjkl]          # window navigation
 <C-[i, o]>      # jump back/forward locations
           
 --- tabs ---
@@ -27,3 +26,72 @@ g[t, T]  # cycle through tabs
 
 --- misc --- 
 :noh    # no highlights
+
+--- telescope bindings ---
+#  access telescope built ins 
+<Leader>pp      
+
+#  most recently used files
+<Leader>m 
+
+#  find buffer
+; 
+
+#  find in current buffer
+<Leader>/ 
+
+#  bookmarks
+<Leader>' 
+
+#  git files
+<Leader>f 
+
+#  all files
+<Leader>bfs 
+
+#  ripgrep like grep through dir
+<Leader>rg 
+
+# when in buffer search 
+<C-x>  # go to file selection as a split   
+<C-v>  # go to file selection as a vsplit   
+<C-t>  # go to a file in a new tab
+
+
+--- LSP bindings ---
+
+# go to definition
+gd    
+
+# go to declaration
+gD    
+
+# find references
+gr    
+
+# go to implementation
+gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+
+# hover dock
+K     
+
+# signature_help
+<C-k> 
+gs
+
+# diagnostic_jump_prev/next
+<C-p> 
+<C-n> 
+
+# formatting
+gf    
+
+# rename
+gn    
+
+# code action
+ga    
+
+# range code action
+ga   
+
